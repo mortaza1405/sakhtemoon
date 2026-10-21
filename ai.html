@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10172c">
+<meta name="description" content="دستیار هوشمند ساخت‌مون برای توضیح درخواست‌های ساختمانی و افزودن عکس">
+<title>دستیار هوشمند | ساخت‌مون</title>
+<style>
+:root{--navy:#10172c;--blue:#60a5fa;--purple:#8b5cf6;--ink:#182235;--muted:#64748b;--line:#e2e8f0}*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f4f6fb;color:var(--ink);line-height:1.9}a{text-decoration:none;color:inherit}.wrap{width:min(850px,92%);margin:auto}.top{background:#0a1225;color:#dbeafe;padding:12px 0;font-size:.9rem}.brand{font-size:1.3rem;font-weight:900;color:#fff}.brand span{color:#7dd3fc}.hero{background:radial-gradient(ellipse at 80% 0,#35266e 0,transparent 45%),linear-gradient(135deg,#091326,#111b38 65%,#1a1033);color:#fff;padding:32px 0 38px}.hero h1{font-size:clamp(1.7rem,4vw,2.4rem);margin:12px 0 5px}.hero p{color:#d4def4;margin:0}.orb{display:inline-grid;place-items:center;width:52px;height:52px;border-radius:17px;background:radial-gradient(circle at 30% 25%,#e0faff,#67c8ff 28%,#7959ff 66%,#1d2b6a);box-shadow:0 0 25px #479dff80;font-size:1.6rem}.panel{background:white;border:1px solid var(--line);border-radius:22px;padding:clamp(18px,4vw,30px);margin:-18px auto 32px;position:relative;box-shadow:0 16px 45px #0f172a12}.label{display:block;font-weight:bold;margin:0 0 8px}.hint{font-size:.84rem;color:var(--muted);margin:5px 0 14px}textarea{width:100%;min-height:150px;resize:vertical;border:1px solid #cbd5e1;border-radius:14px;padding:14px;font:inherit;outline:none}textarea:focus{border-color:#818cf8;box-shadow:0 0 0 3px #818cf822}.upload{display:flex;align-items:center;gap:12px;border:1px dashed #94a3b8;border-radius:14px;padding:14px;cursor:pointer;background:#f8faff}.upload input{max-width:100%;font:inherit}.preview{display:none;margin-top:12px}.preview img{max-width:100%;max-height:280px;object-fit:contain;border-radius:12px;border:1px solid var(--line)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(110deg,#2563eb,#7c3aed);color:white;border:0;border-radius:12px;padding:12px 20px;font:inherit;font-weight:bold;cursor:pointer;box-shadow:0 7px 18px #6256d933}.secondary{background:#eef2ff;color:#3730a3;box-shadow:none}.note{font-size:.84rem;color:#64748b;margin-top:18px;background:#f8fafc;border-radius:12px;padding:12px}.status{display:none;margin-top:14px;padding:12px;border-radius:12px;background:#fff7ed;color:#9a3412;font-size:.9rem}.back{display:inline-block;margin-top:22px;color:#dbeafe;text-decoration:underline;text-underline-offset:4px}footer{text-align:center;color:#64748b;font-size:.8rem;padding:0 0 25px}@media(max-width:540px){.actions>*{width:100%}.upload{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html">ساخت<span>‌مون</span></a></div></header>
+<section class="hero"><div class="wrap"><span class="orb">✦</span><h1>دستیار هوشمند ساخت‌مون</h1><p>بگو برای ساختمان خودت چه کاری در نظر داری. می‌توانی عکس هم اضافه کنی.</p><a class="back" href="index.html">← بازگشت به صفحه اصلی</a></div></section>
+<main class="wrap">
+<form class="panel" id="requestForm">
+<label class="label" for="request">چه کاری می‌خواهی انجام بدهی؟</label>
+<textarea id="request" placeholder="مثلاً: می‌خواهم پذیرایی خانه‌ام را مدرن کنم، رنگ روشن دوست دارم و هزینه‌ام مناسب باشد..." required></textarea>
+<p class="hint">هرچقدر جزئیات بیشتری بنویسی، بهتر می‌توانیم درخواستت را بررسی کنیم.</p>
+<label class="label" for="photo">افزودن عکس (اختیاری)</label>
+<label class="upload" for="photo"><span style="font-size:1.8rem">▧</span><span><strong>عکس ساختمان یا فضای موردنظر</strong><br><small>یک تصویر از گوشی انتخاب کن</small></span><input id="photo" type="file" accept="image/*"></label>
+<div class="preview" id="preview"><p class="hint">پیش‌نمایش عکس انتخاب‌شده:</p><img id="previewImg" alt="پیش‌نمایش عکس انتخاب‌شده"></div>
+<div class="actions"><button class="btn" type="submit">بررسی درخواست من ✦</button><button class="btn secondary" type="button" id="clearBtn">پاک کردن فرم</button></div>
+<div class="status" id="status" role="status"></div>
+<p class="note">این صفحه فعلاً نمونه اولیه رابط کاربری است. ارسال اطلاعات به هوش مصنوعی هنوز متصل نشده؛ برای تحلیل واقعی عکس، طراحی و برآورد هزینه باید سرویس هوش مصنوعی و بخش پشتیبان امن راه‌اندازی شود. برآوردهای آینده نیز تقریبی خواهند بود و اندازه‌گیری نهایی ممکن است به بازدید متخصص نیاز داشته باشد.</p>
+</form>
+</main>
+<footer class="wrap">ساخت‌مون — از ایده تا اجرا</footer>
+<script>
+const photo=document.getElementById('photo'),preview=document.getElementById('preview'),previewImg=document.getElementById('previewImg'),statusBox=document.getElementById('status');
+photo.addEventListener('change',()=>{const file=photo.files&&photo.files[0];if(!file){preview.style.display='none';previewImg.removeAttribute('src');return;}if(!file.type.startsWith('image/')){photo.value='';preview.style.display='none';statusBox.style.display='block';statusBox.textContent='لطفاً یک فایل تصویری انتخاب کن.';return;}previewImg.src=URL.createObjectURL(file);preview.style.display='block';statusBox.style.display='none';});
+document.getElementById('requestForm').addEventListener('submit',e=>{e.preventDefault();statusBox.style.display='block';statusBox.textContent='فرم و انتخاب عکس آماده است؛ اتصال به هوش مصنوعی هنوز انجام نشده و این درخواست ارسال نشده است.';});
+document.getElementById('clearBtn').addEventListener('click',()=>{document.getElementById('requestForm').reset();preview.style.display='none';previewImg.removeAttribute('src');statusBox.style.display='none';});
+</script>
+</body></html>
